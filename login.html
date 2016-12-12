@@ -7,33 +7,76 @@
     <title>咔方网 - ( ゜- ゜)つロ  乾杯~  - CArFun!</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/carousel.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/car.ico" /> 
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/car.ico" />
     <style type="text/css">
-    	.loginBox{
-    		width: 200px;
-    		height: 200px;
-    		border: 1px solid grey;
-    		margin: 0 auto;
-    	}
-    </style>
+      .warp{
+        width: 500px;
+        height: 400px;
+        margin: 0 auto;
+      }
+      body label{
+        color: #fff;
+      }
+      .box{
+        background-color: rgba(20, 20, 110, 0.4);
+        height: 500px;
+        margin-top: 60px;
+        border: 10px solid #ecf0f1;
+        border-radius: 95px;
+        box-shadow: 10px 10px 8px #ecf0f1;
+      }
+      .box h1{
+        color: #fff;
+        text-align: center;
+      }
+      .bgimg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .box input{
+        width: 200px;
+      }
+      .radioBox{
+        width: 30px !important;
+        display: inline !important;
+      }
+      .sexde{
+        width: 30px !important;
+        display: inline !important;
+      }
+      .bnt{
+        margin-top: 100px;
+      }
+      .notic{
+        position: relative;
+        left: 170px;
+        top: 40px;
+        color: #888;
+      }
+    </style> 
   </head>
   <body>
-		<div class="container">
-			<div class="loginBox">
-				<form action="loginPro.php" method="post">
-					<label>用户名</label>
-					<input type="text" name="uname">
-					<label>密码</label>
-					<input type="text" name="pwd">
-					<input type="submit" name="" value="登陆">
-				</form>
-			</div>
-		</div>
-	    <footer>
-	      <p class="pull-right"><a href="#">回到定端</a></p>
-	      <p>&copy; 2016 ChrisWong. &middot; <a href="#">Privacy</a> &middot; <a href="#">个人作品</a></p>
-	    </footer>
-  	<script src="js/jquery-3.0.0.min.js"></script>
+    <div class="bgimg" style="position:absolute; left:0px; top:0px; width:100%; height:100%">
+    <img src="img/loginBg.jpg" width="100%" height="100%"/>  
+    </div>
+    <div class="warp">
+      <div class="box registBox">
+        <h1>登陆</h1>
+        <form action="loginPro.php" method="post"> 
+            <label>用户名</label>
+            <input type="text" name="uname" class="form-control" placeholder="username">
+            <label>密码</label>
+            <input type="text" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="submit" name="" value="提交" class="btn btn-info bnt"><br>
+        </form>
+            <p class="notic">没有账户？<a href="regist.html">点我注册</a></p>     
+      </div>    
+    </div>
+    <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
