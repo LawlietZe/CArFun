@@ -66,16 +66,23 @@
     <div class="warp">
       <div class="box registBox">
         <h1>登陆</h1>
-        <form action="loginPro.php" method="post"> 
+        <form action="loginPro.php" method="post" onsubmit="return check()"> 
             <label>用户名</label>
-            <input type="text" name="uname" class="form-control" placeholder="username">
+            <input id="uname" type="text" name="uname" class="form-control" placeholder="username">
             <label>密码</label>
-            <input type="text" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input id="pwd" type="text" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Password">
             <input type="submit" name="" value="提交" class="btn btn-info bnt"><br>
         </form>
             <p class="notic">没有账户？<a href="regist.html">点我注册</a></p>     
       </div>    
     </div>
+    <script type="text/javascript">
+      function check(){
+        
+        alert('用户名不能为空');
+      }  
+      }
+    </script>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
