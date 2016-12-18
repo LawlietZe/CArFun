@@ -32,6 +32,7 @@
                   <li class="active"><a href="#">主页</a></li>
                   <li><a href="regist.html">注册</a></li>
                   <li><a href="#about">玩家讨论区</a></li>
+                  <li><a href="pub.html">发布帖子</a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">更多 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
