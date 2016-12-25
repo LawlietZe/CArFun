@@ -64,63 +64,10 @@
           </nav>
         </div>
       </div>
-      <!-- 帖子内容显示区域      -->
-      <?php
-          echo "<div class='noteList'>";
-          $servername = "localhost";
-          $username = "root";
-          $password = "root";
-          $dbname = "cfDB";
-          // PDO链接数据库方法
-          $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-          $query = $conn->prepare('select * from Notes');
-          $conn->query('SET NAMES utf8'); //设置字符编码
-          $query->execute();
-          $rs = $query->fetchAll();
-          echo "<div class='row'>";
-          foreach ($rs as  $value) {
-                    echo    "<div class='col-sm-6 col-md-6'>";
-                    echo      "<div class='thumbnail'>";
-                    echo        "<img data-src='holder.js/300x300' src='".$value[img]."' width=500px height=300px>";
-                    echo          "<div class='caption'>";
-                    echo             "<p>作者:".$value[auth]."</p>"; 
-                    echo             "<h3 class='strict'>".$value[notetitle]."</h3>";
-                    echo             "<p class='strict'>".$value[content]."</p>";
-                    echo             "<p class='pubtime'>发布时间:".$value[pubtime]."</p>";
-                    echo    "<p><a href='detail.php' class='btn btn-info' role='button'>评论</a> <a href='#' class='btn btn-danger like' role='button' rel='".$value[noteid]."'>点赞 <span class='badge'>".$value[like]."</span></a></p>";
-                    echo       "</div>";
-                    echo    "</div>";
-                    echo  "</div>";
-          }
-                    echo  "</div>";  
-                    echo "</div>";
-      ?>
+      
     </div>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-        $(".like").click(function(){
-          var like = $(this);
-          var id   = like.attr("rel"); //对应id
-          like.fadeOut(300);
-          $.ajax({
-            type:"POST",
-            url:"like.php",
-            data:"id="+id,
-            cache:false,
-            success:function(data){
-              like.html(data);
-              like.fadeIn(300);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-              alert("失败");
-            }
-          });
-          return false;
-        });
-      });
-    </script>
   </body>
 </html>  
 

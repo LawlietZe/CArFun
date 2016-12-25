@@ -22,17 +22,24 @@
       .bnt{
         margin-top: 20px;
       }
+      .cancel{
+        position: relative;
+        top: 20px;
+      }
     </style>
   </head>
   <body>
     <div class="pubBox">
-    <form method="post" action="pubPro.php">
+    <form method="post" action="pubPro.php" enctype="multipart/form-data">
       <label>标题</label>
       <input id="noteTitle" type="text" name="noteTitle" class="form-control" placeholder="发帖标题">
       <label>内容</label>
       <input id="noteContent" type="text" name="noteContent" class="form-control" id="noteContent" placeholder="发布内填写...">
+      <label>上传爱车照片</label>
+      <input type="file" class="form-control" name="pubimg" id="pubimg">
       <input type="submit" name="" value="发布" class="btn btn-info bnt"><br>
     </form>
+      <a href="diss.php" class="cancel">取消</a>
     </div>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -1,4 +1,21 @@
-<?php
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>咔方网 - ( ゜- ゜)つロ  乾杯~  - CArFun!</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/car.ico" />
+    <style type="text/css">
+
+    </style> 
+  </head>
+  <body> 
+    <?php
+    session_start(); 
     // 从表单获取用户注册信息
     $name = $_POST['uname'];
     $passwd = $_POST['pwd'];
@@ -22,9 +39,21 @@
     if(!$re){                                                                           //若无返回，
     $sql2 = "insert into User(username, password, phone, email, sex, remark) values ('" . $name . "', '" . $passwd . "', '" . $phone . "', '" . $email . "', '" . $sex . "', '" . $remark . "')";        //添加数据
     $conn->exec($sql2);
-    echo "您已注册成功 <br /><a href='index.html'>返回登录页面</a>";
-    // echo "<script>window.location.href='index.html';</script>";                                                                      //返回用户信息
+    $_SESSION['username'] = $name;
+    echo "<div class='alert alert-success'>注册成功！跳转到玩家讨论版块。</div>";
+    echo '<script language="javascript">
+            function doReload()
+            {
+            location.href="diss.php";
+            }
+            setTimeout("doReload()",1500);
+            </script>';
     }else{
         echo "用户名已被注册 <br /><a href='regist.html'>返回注册页面</a>";//若有返回，返回信息
     }
-?>
+    ?>
+
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
