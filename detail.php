@@ -27,6 +27,9 @@
         overflow: hidden;
         white-space: nowrap;
       }
+      .warp{
+        margin-top: 80px;
+      }
     </style>
   </head>
   <body>
@@ -45,7 +48,7 @@
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="#">主页</a></li>
                   <li><a href="regist.html">注册</a></li>
-                  <li><a href="#about">玩家讨论区</a></li>
+                  <li><a href="diss.php">玩家讨论区</a></li>
                   <li><a href="pub.html">发布帖子</a></li>
                   <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">更多 <span class="caret"></span></a>
@@ -64,8 +67,34 @@
           </nav>
         </div>
       </div>
-      
-    </div>
+<!--     根据制定id渲染页面   --> 
+    <?php           
+      $noteID = $_GET['noteid'];
+      $servername = "localhost";
+      $username = "root";
+      $password = "root";
+      $dbname = "cfDB";
+      // PDO链接数据库方法
+      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+      $conn->query('SET NAMES utf8'); //设置字符编码
+      $sql = "SELECT * FROM Notes WHERE noteid = '" . $noteID . "'";  
+      $result = $conn->query($sql); 
+      $re = $result->fetch();
+        echo    "<div class='col-sm-12 col-md-12 warp'>";
+        echo      "<div class='thumbnail'>";
+        echo             "<h3 class='strict'>主题:  ".$re['notetitle']."</h3>";
+        echo        "<img data-src='holder.js/300x300' src='".$re['img']."' width=500px height=300px>";
+        echo          "<div class='caption'>";
+        echo             "<p>作者:".$re['auth']."</p>"; 
+        echo             "<p class='strict'>".$re['content']."</p>";
+        echo             "<p class='pubtime'>发布时间:".$re['pubtime']."</p>";
+        echo       "</div>";
+        echo    "</div>";
+        echo  "</div>";
+        echo  "</div>";  
+        echo "</div>";
+    ?>  
+      </div>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>

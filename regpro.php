@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/car.ico" />
     <style type="text/css">
-
     </style> 
   </head>
   <body> 

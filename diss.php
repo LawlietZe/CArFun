@@ -87,7 +87,7 @@
                     echo             "<h3 class='strict'>".$value[notetitle]."</h3>";
                     echo             "<p class='strict'>".$value[content]."</p>";
                     echo             "<p class='pubtime'>发布时间:".$value[pubtime]."</p>";
-                    echo    "<p><a href='detail.php' class='btn btn-info' role='button'>评论</a> <a href='#' class='btn btn-danger like' role='button' rel='".$value[noteid]."'>点赞 <span class='badge'>".$value[like]."</span></a></p>";
+                    echo             "<p><a href='detail.php?noteid=".$value[noteid]."' class='btn btn-info' role='button'>评论</a> <a href='#' class='btn btn-danger like' role='button' rel='".$value[noteid]."'>点赞 <span class='badge'>".$value[like]."</span></a></p>";
                     echo       "</div>";
                     echo    "</div>";
                     echo  "</div>";

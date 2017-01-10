@@ -29,9 +29,9 @@
     $password = "root";
     $dbname = "cfDB";
     try {
-          $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        //PDO链接
-            $conn->query('SET NAMES utf8');             //设置字符编码
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                                                                    //PDO链接
+        $conn->query('SET NAMES utf8');                             //设置字符编码
         session_start();                                            //session开始
         $sql = "select userid from User where username = '".$name."' AND password = '".$passwd."'";
         $res = $conn->query($sql);                   //执行sql语句
