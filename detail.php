@@ -19,7 +19,7 @@
         top: 100px;
       }
       .pubtime{
-        font-size: 8px;
+        font-size: 15px !important;
         color: #999;
       }
       .strict{
@@ -29,6 +29,22 @@
       }
       .warp{
         margin-top: 80px;
+      }
+      .contentSize{
+        font-size: 20px !important;
+        text-align: center;
+      }
+      .reply{
+        border: 1px solid red;
+        width: 100%;
+        background-color: #fff;
+      }
+      body{
+        background-color: #ecf0f1;
+      }
+      .ewidth{
+        width: 80%;
+        margin: 0 auto;
       }
     </style>
   </head>
@@ -82,19 +98,25 @@
       $re = $result->fetch();
         echo    "<div class='col-sm-12 col-md-12 warp'>";
         echo      "<div class='thumbnail'>";
-        echo             "<h3 class='strict'>主题:  ".$re['notetitle']."</h3>";
+        echo             "<h2 class='strict title'>主题:  ".$re['notetitle']."</h2>";
         echo        "<img data-src='holder.js/300x300' src='".$re['img']."' width=500px height=300px>";
         echo          "<div class='caption'>";
-        echo             "<p>作者:".$re['auth']."</p>"; 
-        echo             "<p class='strict'>".$re['content']."</p>";
         echo             "<p class='pubtime'>发布时间:".$re['pubtime']."</p>";
+        echo             "<p>作者:".$re['auth']."</p>"; 
+        echo             "<p class='strict contentSize'>".$re['content']."</p>";
         echo       "</div>";
         echo    "</div>";
         echo  "</div>";
         echo  "</div>";  
         echo "</div>";
-    ?>  
-      </div>
+         // 回复项 
+            echo "<form method='post' action='reply.php?auth=".$_SESSION['username']."&repid=".$noteID."' enctype='multipart/form-data' class='ewidth'>";
+            echo "<label>回复</label>";  
+            echo "<input id='repContent' type='text' name='repContent' class='form-control' id='repContent' placeholder='回复内容...'>";  
+            echo "<input type='submit' value='回复'' class='btn btn-info bnt'><br>
+            </form>";  
+            echo "</div>";
+            ?> 
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
