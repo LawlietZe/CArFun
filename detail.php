@@ -109,7 +109,26 @@
         echo  "</div>";
         echo  "</div>";  
         echo "</div>";
-         // 回复项 
+         //回复内容显示区域
+          $query = $conn->prepare("SELECT * FROM Reply WHERE noteid = '" . $noteID . "'");
+          $conn->query('SET NAMES utf8'); //设置字符编码
+          $query->execute();
+          $rs2 = $query->fetchAll();
+                        echo "<div class='row'>";
+              foreach ($rs2 as  $value) {
+                        echo    "<div class='col-sm-12 col-md-12'>";
+                        echo      "<div class='thumbnail'>";
+                        echo          "<div class='caption'>";
+                        echo             "<p>作者:".$value['auth']."</p>"; 
+                        echo             "<p class='strict'>".$value[repcontent]."</p>";
+                        echo             "<p class='pubtime'>发布时间:".$value[reptime]."</p>";
+                        echo       "</div>";
+                        echo    "</div>";
+                        echo  "</div>";
+              }
+                        echo  "</div>";  
+                        echo "</div>";
+         // 回复表单 
             echo "<form method='post' action='reply.php?auth=".$_SESSION['username']."&repid=".$noteID."' enctype='multipart/form-data' class='ewidth'>";
             echo "<label>回复</label>";  
             echo "<input id='repContent' type='text' name='repContent' class='form-control' id='repContent' placeholder='回复内容...'>";  
