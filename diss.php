@@ -55,9 +55,14 @@
                   </ul>
                  <?php
                   session_start();
-                  echo '<li class="uname"><a href="#">欢迎您：'.$_SESSION['username'].'</a></li>';
+                  if (isset($_SESSION['username'])) {
+                       echo '<li class="uname"><a href="#">欢迎您：'.$_SESSION['username'].'</a></li>';
+                       echo '<li><a href="loginout.php">注销</a></li>';
+                  }
+                  else{
+                    echo '<li><a href="login.html">请登录</a></li>';
+                  }
                  ?>
-                  <li><a href="loginout.php">注销</a></li>
                 </ul>
               </div>
             </div>
