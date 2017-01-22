@@ -46,6 +46,9 @@
         width: 80%;
         margin: 0 auto;
       }
+      .replyBG{
+        background-color: #bdc3c7;
+      }
     </style>
   </head>
   <body>
@@ -109,7 +112,7 @@
         echo  "</div>";
         echo  "</div>";  
         echo "</div>";
-         //回复内容显示区域
+          //回复内容显示区域
           $query = $conn->prepare("SELECT * FROM Reply WHERE noteid = '" . $noteID . "'");
           $conn->query('SET NAMES utf8'); //设置字符编码
           $query->execute();
@@ -117,11 +120,11 @@
                         echo "<div class='row'>";
               foreach ($rs2 as  $value) {
                         echo    "<div class='col-sm-12 col-md-12'>";
-                        echo      "<div class='thumbnail'>";
+                        echo      "<div class='thumbnail  replyBG'>";
                         echo          "<div class='caption'>";
-                        echo             "<p>作者:".$value['auth']."</p>"; 
+                        echo             "<p>>>:".$value['auth']."</p>"; 
                         echo             "<p class='strict'>".$value[repcontent]."</p>";
-                        echo             "<p class='pubtime'>发布时间:".$value[reptime]."</p>";
+                        echo             "<p class='pubtime'>回复时间:".$value[reptime]."</p>";
                         echo       "</div>";
                         echo    "</div>";
                         echo  "</div>";

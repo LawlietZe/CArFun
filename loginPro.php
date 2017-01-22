@@ -48,7 +48,7 @@
         }
     }
     catch(PDOException $e){
-       echo $e->getMessage();
+        echo $e->getMessage();
     }
     ?>
     <script src="js/jquery-3.0.0.min.js"></script>
