@@ -16,7 +16,7 @@
   $auth = $_GET['auth'];    //获取发布者名称
   $repid = $_GET['repid'];  //获取回复帖子id
   $content = $_POST['repContent'];
-      //链接数据库
+    //链接数据库
     $servername = "localhost";
     $username = "root";
     $password = "root";
@@ -27,8 +27,16 @@
     //对数据库进行查找
     $sql = "insert into Reply(noteid, repcontent, auth) values ('" . $repid . "', '" . $content . "', '". $auth ."')";        //添加数据
     $conn->exec($sql);
-    echo "回复成功 <br /><a href='diss.php'>返回玩家讨论区</a>";
-
+    echo "<div class='alert alert-success'>
+          <a href='detail.php?noteid=".$repid."'>回复成功,跳转中</a>
+          </div>";
+    echo "<script language='javascript'>
+            function doReload()
+            {
+            location.href='detail.php?noteid=".$repid."';
+            }
+            setTimeout('doReload()',1500);
+          </script>";    
   ?>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

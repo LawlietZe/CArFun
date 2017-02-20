@@ -131,7 +131,7 @@
               }
                         echo  "</div>";  
                         echo "</div>";
-         // 回复表单 
+            // 回复表单 
             echo "<form method='post' action='reply.php?auth=".$_SESSION['username']."&repid=".$noteID."' enctype='multipart/form-data' class='ewidth'>";
             echo "<label>回复</label>";  
             echo "<input id='repContent' type='text' name='repContent' class='form-control' id='repContent' placeholder='回复内容...'>";  
