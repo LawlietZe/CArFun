@@ -86,7 +86,7 @@
           foreach ($rs as  $value) {
                     echo    "<div class='col-sm-6 col-md-6'>";
                     echo      "<div class='thumbnail'>";
-                    echo        "<img data-src='holder.js/300x300' src='".$value[img]."' width=500px height=300px>";
+                    echo        "<img data-src='holder.js/300x300' src='".$value[img]."' width=480px height=300px>";
                     echo          "<div class='caption'>";
                     echo             "<p>作者:".$value[auth]."</p>"; 
                     echo             "<h3 class='strict'>".$value[notetitle]."</h3>";

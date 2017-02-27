@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>咔方网 - ( ゜- ゜)つロ  乾杯~  - CArFun!</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/carousel.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/car.ico" /> 
+  </head>
+  <body>
 <?php
     session_start();    // 开启  
     $title   = $_POST['noteTitle'];
@@ -35,5 +47,17 @@
     //对数据库进行查找
     $sql = "insert into Notes(notetitle, content, auth, img) values ('" . $title . "', '" . $content . "', '" . $auth . "', '". $pubimg ."')";        //添加数据
     $conn->exec($sql);
-    echo "发帖成功 <br /><a href='diss.php'>返回玩家讨论区</a>";
+    echo "<div class='alert alert-success'>
+          <a href='diss.php'>回复成功,跳转中</a>
+          </div>";
+    echo "<script language='javascript'>
+            function doReload()
+            {
+            location.href='diss.php';
+            }
+            setTimeout('doReload()',1500);
+          </script>";
 ?>
+  </body>
+</html>  
+

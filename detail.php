@@ -20,7 +20,7 @@
       }
       .pubtime{
         font-size: 15px !important;
-        color: #999;
+        color: #eaf0f1;
       }
       .strict{
         text-overflow: ellipsis;
@@ -48,6 +48,16 @@
       }
       .replyBG{
         background-color: #bdc3c7;
+        border: 1px solid #2980b9;
+      }
+      .style{
+        margin-bottom: 15px;
+      }
+      .repleyText{
+        font-size: 20px;
+      }
+      .notepubtime{
+        color: #7f8c8d;
       }
     </style>
   </head>
@@ -104,7 +114,7 @@
         echo             "<h2 class='strict title'>主题:  ".$re['notetitle']."</h2>";
         echo        "<img data-src='holder.js/300x300' src='".$re['img']."' width=500px height=300px>";
         echo          "<div class='caption'>";
-        echo             "<p class='pubtime'>发布时间:".$re['pubtime']."</p>";
+        echo             "<p class='notepubtime'>发布时间:".$re['pubtime']."</p>";
         echo             "<p>作者:".$re['auth']."</p>"; 
         echo             "<p class='strict contentSize'>".$re['content']."</p>";
         echo       "</div>";
@@ -133,8 +143,8 @@
                         echo "</div>";
             // 回复表单 
             echo "<form method='post' action='reply.php?auth=".$_SESSION['username']."&repid=".$noteID."' enctype='multipart/form-data' class='ewidth'>";
-            echo "<label>回复</label>";  
-            echo "<input id='repContent' type='text' name='repContent' class='form-control' id='repContent' placeholder='回复内容...'>";  
+            echo "<label class='repleyText'>回复</label>";  
+            echo "<input id='repContent' type='text' name='repContent' class='form-control style' id='repContent' placeholder='回复内容...'>";  
             echo "<input type='submit' value='回复'' class='btn btn-info bnt'><br>
             </form>";  
             echo "</div>";
