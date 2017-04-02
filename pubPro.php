@@ -48,7 +48,7 @@
     $sql = "insert into Notes(notetitle, content, auth, img) values ('" . $title . "', '" . $content . "', '" . $auth . "', '". $pubimg ."')";        //添加数据
     $conn->exec($sql);
     echo "<div class='alert alert-success'>
-          <a href='diss.php'>回复成功,跳转中</a>
+          <a href='diss.php'>发帖成功,跳转中</a>
           </div>";
     echo "<script language='javascript'>
             function doReload()
